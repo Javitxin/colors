@@ -7,9 +7,8 @@ function boxColor ({color, value}) {
   const boxRef =useRef(null);
 
   const boxStyle = {
-    backgroundColor: classList.valueOf == `box ${value}` ? color: null,
-    border: `2px solid ${color}`,
-    color: color
+    backgroundColor: value === color ? color: null,    
+    color: value == color ? 'white' : color
   }
   useEffect (() => {
     setClassList(boxRef.current.classList)
@@ -18,7 +17,7 @@ function boxColor ({color, value}) {
     <>
       <div 
         ref={boxRef}
-        className={`box ${color}`}
+        className={`box `}
         style={boxStyle}>
           {color === value ? <h3 style={{color: 'black'}}>Yes, I´m {value} color</h3> : <h3>I´m not a {value} color</h3>}
 
